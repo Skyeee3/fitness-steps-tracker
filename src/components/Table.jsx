@@ -1,5 +1,5 @@
 import data from "../data/exerciseData.json";
-
+const STEPS_PER_MIN = 100;
 export default function Table() {
   return (
     // Table container
@@ -14,21 +14,29 @@ export default function Table() {
             <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-b">Date</th>
             <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-b">Calories</th>
             <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 border-b">Duration (min)</th>
+            <th className="px-6 py-3 text-right text-sm font-medium text-gray-700 border-b">Steps</th>
           </tr>
         </thead>
 
         {/* Table body with data rows */}
         <tbody>
-          {data.map((item, index) => (
-            <tr key={index} className="hover:bg-gray-50">
-              {/* date */}
-              <td className="px-6 py-4 border-b">{item.date}</td>
-              {/* calories */}
-              <td className="px-6 py-4 border-b">{item.calories}</td>
-              {/* duration */}
-              <td className="px-6 py-4 border-b">{item.durationMinutes}</td>
-            </tr>
-          ))}
+            {data.map((item, index) => {
+                // calculate steps for each row
+                const steps = item.durationMinutes * STEPS_PER_MIN;
+
+                return (
+                <tr key={index} className="hover:bg-gray-50">
+                    {/* date */}
+                    <td className="px-6 py-4 border-b">{item.date}</td>
+                    {/* calories */}
+                    <td className="px-6 py-4 border-b">{item.calories}</td>
+                    {/* duration */}
+                    <td className="px-6 py-4 border-b">{item.durationMinutes}</td>
+                    {/* steps */}
+                    <td className="px-6 py-4 border-b text-right">{steps.toLocaleString()}</td>
+                </tr>
+            );
+        })}
         </tbody>
       </table>
     </div>

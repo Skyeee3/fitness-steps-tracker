@@ -3,7 +3,9 @@ import data from "../data/exerciseData.json";
 export default function Table() {
   return (
     // Table container
-    <div className="overflow-x-auto shadow-md rounded-lg">
+    <div className="overflow-x-auto shadow-md rounded-lg p-4 bg-white mb-6">
+
+    <h2 className="text-lg font-semibold mb-3">Exercise Records</h2>
       {/* table structure */}
       <table className="min-w-full bg-white border border-gray-200">
         {/* table header */}

@@ -1,9 +1,12 @@
+import Table from "./components/Table";
+
 export default function App() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-3xl font-bold text-blue-600 underline">
-        Tailwind OK
-      </h1>
+    <main className="min-h-screen bg-gray-100 py-10 px-4">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-2xl font-bold mb-6">Fitness Tracker</h1>
+        <Table />
+      </div>
     </main>
   );
 }
